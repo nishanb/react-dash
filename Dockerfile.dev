@@ -1,0 +1,12 @@
+#set base image
+FROM node:latest
+
+WORKDIR /app
+
+COPY ./package.json ./
+RUN npm install
+
+COPY . .
+
+#run react app 
+CMD ["npm","run","start"]
