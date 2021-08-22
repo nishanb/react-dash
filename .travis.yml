@@ -1,0 +1,11 @@
+sudo : required
+services:
+  - docker
+
+language: generic
+
+before_install:
+  - docker build -f Dockerfile.dev -t nishanb/react-dash:latest .
+
+script:
+  - docker run -e CI=true nishanb/react-dash:latest npm run test -- --coverage
